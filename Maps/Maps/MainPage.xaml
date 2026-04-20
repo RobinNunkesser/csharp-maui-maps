@@ -3,36 +3,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
-             xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
-             x:Class="Maps.MainPage">
-    <maps:Map MapType="Hybrid">
-        <x:Arguments>
-            <maps:MapSpan>
-                <x:Arguments>
-                    <sensors:Location>
-                        <x:Arguments>
-                            <x:Double>51.6827</x:Double>
-                            <x:Double>7.841</x:Double>
-                        </x:Arguments>
-                    </sensors:Location>
-                    <x:Double>0.01</x:Double>
-                    <x:Double>0.01</x:Double>
-                </x:Arguments>
-            </maps:MapSpan>
-        </x:Arguments>
-        <maps:Map.Pins>
-            <maps:Pin Label="HSHL"
-                      Address="Hochschule Hamm-Lippstadt"
-                      Type="Place">
-                <maps:Pin.Location>
-                    <sensors:Location>
-                        <x:Arguments>
-                            <x:Double>51.6827</x:Double>
-                            <x:Double>7.841</x:Double>
-                        </x:Arguments>
-                    </sensors:Location>
-                </maps:Pin.Location>
-            </maps:Pin>
-        </maps:Map.Pins>
-    </maps:Map>
+             x:Class="Maps.MainPage"
+             Title="Maps">
+    <Grid Padding="16" RowDefinitions="Auto,Auto,*">
+        <Label FontAttributes="Bold"
+               FontSize="24"
+               Text="Campus map" />
+
+        <Label Grid.Row="1"
+               Margin="0,8,0,12"
+               Text="A minimal Maps example with one fixed pin and one recenter action." />
+
+        <VerticalStackLayout Grid.Row="2" Spacing="12">
+            <Button Clicked="OnCenterOnCampusClicked"
+                    Text="Center on HSHL" />
+
+            <maps:Map x:Name="CampusMap"
+                      HeightRequest="420"
+                      MapType="Street" />
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
