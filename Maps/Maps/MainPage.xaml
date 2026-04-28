@@ -20,7 +20,7 @@
 
             <maps:Map x:Name="CampusMap"
                       HeightRequest="420"
-                      MapType="Street" />
+                      MapType="Satellite" />
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
